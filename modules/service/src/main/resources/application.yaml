@@ -1,0 +1,29 @@
+spring:
+  #Redis
+  datasource:
+    url: jdbc:postgresql://localhost:5432/lesson_postgres
+    username: lesson_postgres
+    password: lesson_postgres
+    schema-username: lesson_postgres
+    schema-password: lesson_postgres
+    driver-class-name: org.postgresql.Driver
+    test-while-idle: true
+    validation-query: SELECT 1
+    initialize: true
+    hikari:
+      schema: lesson_postgres
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      temp.use_jdbc_metadata_defaults: false
+    properties:
+      javax:
+        persistence:
+          create-database-schemas: true
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: lesson_postgres
+        temp:
+          use_jdbc_metadata_defaults: false
+        

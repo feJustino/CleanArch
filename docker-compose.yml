@@ -1,0 +1,18 @@
+version: '3'
+
+networks:
+  database_network:
+  cache:
+services:
+  postgres:
+    container_name: lesson_postgres
+    image: postgres:10.5
+    ports:
+    - "5432:5432"
+    environment:
+    - POSTGRES_DB=lesson_postgres
+    - POSTGRES_USER=lesson_postgres
+    - POSTGRES_PASSWORD=lesson_postgres
+    - MAX_CONNECTIONS=300
+    networks:
+    - database_network
